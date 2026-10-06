@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Life - Page de connexion à l'espace étudiant et démocratique.">
+  <title>Connexion Étudiante | Campus Life RAMMSS</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      background: radial-gradient(circle at top, var(--primary-light) 0%, var(--bg-body) 70%);
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-header img {
+      margin-inline: auto;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Démonstrateur d'état d'erreur via CSS :target */
+    #error-state {
+      display: none;
+    }
+
+    #error-state:target {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+    <div class="auth-header">
+      <a href="index.html" aria-label="Retour à l'accueil">
+        <img src="assets/logo.svg" alt="Logo Campus Life RAMMSS" width="220" height="52">
+      </a>
+      <h1 style="font-size: 1.5rem; font-weight: 800; color: var(--text-main);">Espace Étudiant</h1>
+      <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.35rem;">
+        Connectez-vous pour participer aux votes et soumettre des idées
+      </p>
+    </div>
+
+    <!-- Message d'Erreur (Critère d'acceptation 3 : En cas d'erreur, un message clair s'affiche) -->
+    <div id="error-state" class="alert alert-danger" role="alert">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <div>
+        <strong>Échec de la connexion :</strong>
+        <p style="font-size: 0.825rem; margin-top: 0.15rem;">Identifiant ou mot de passe incorrect. Vérifiez vos accès campus ou réinitialisez votre code secret.</p>
+      </div>
+    </div>
+
+    <!-- Formulaire de Connexion (Critère 1 : Identifiant + Mot de passe) -->
+    <form action="index.html" method="get">
+      <div class="form-group">
+        <label for="login-id" class="form-label">
+          Identifiant étudiant ou Email campus
+        </label>
+        <input type="text" id="login-id" class="form-control" placeholder="ex: alban.elie@coda.school" value="alban.elie@coda.school" required autocomplete="username">
+      </div>
+
+      <div class="form-group">
+        <div class="form-label">
+          <label for="login-pass">Mot de passe</label>
+          <a href="#" style="font-size: 0.775rem; color: var(--primary);">Mot de passe oublié ?</a>
+        </div>
+        <input type="password" id="login-pass" class="form-control" placeholder="••••••••••••" value="campus2026!secret" required autocomplete="current-password">
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; font-size: 0.85rem;">
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-muted);">
+          <input type="checkbox" name="remember" checked>
+          Rester connecté sur ce poste
+        </label>
+      </div>
+
+      <!-- Bouton de soumission (Critère 2 : Redirection vers fil d'accueil index.html) -->
+      <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+        Se connecter &rarr;
+      </button>
+
+      <!-- Simulation de test pour les critères d'acceptation de la story 1 -->
+      <div style="margin-top: 1.25rem; text-align: center; padding: 0.75rem; border-radius: var(--radius-md); background-color: var(--bg-muted); font-size: 0.775rem; color: var(--text-muted);">
+        <span>Test Maquette (Story 1) : </span>
+        <a href="#error-state" style="font-weight: 600; text-decoration: underline;">Simuler l'erreur d'identifiants</a>
+        <span> &bull; </span>
+        <a href="login.html" style="font-weight: 600; text-decoration: underline;">Réinitialiser</a>
+      </div>
+    </form>
+
+    <hr style="border: none; border-top: 1px solid var(--border-color); margin-block: 1.5rem;">
+
+    <!-- Liens alternatifs (Inscription Admin Story 6) -->
+    <div style="display: flex; flex-direction: column; gap: 0.75rem; text-align: center; font-size: 0.85rem;">
+      <p style="color: var(--text-muted);">
+        Vous êtes membre de la direction ou du BDE ?
+        <a href="admin-register.html" style="font-weight: 600;">Accès Inscription Administrateur &rarr;</a>
+      </p>
+      <a href="index.html" style="color: var(--text-muted); font-size: 0.8rem;">
+        &larr; Continuer la navigation sans se connecter
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

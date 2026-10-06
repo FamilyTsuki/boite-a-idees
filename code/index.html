@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Life - Groupe RAMMSS : Plateforme démocratique pour soumettre, consulter et voter pour les requêtes étudiantes.">
+  <title>Campus Life - Fil d'actualité des requêtes | Groupe RAMMSS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Alerte Notification en tête (Story 12 - Notification de validation) -->
+  <aside class="toast-bar" role="status" aria-live="polite">
+    <div class="container toast-inner">
+      <div class="toast-content">
+        <span aria-hidden="true">🎉</span>
+        <p><strong>Excellente nouvelle !</strong> Votre requête <em>« Installation de micro-ondes au Bâtiment B »</em> a atteint le seuil requis et a été <strong>officiellement validée</strong> par l'administration du campus.</p>
+      </div>
+      <a href="detail.html" class="toast-link">Voir la validation &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- En-tête Principal & Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Accueil Campus Life">
+        <img src="assets/logo.svg" alt="Logo Campus Life RAMMSS" width="200" height="48">
+      </a>
+
+      <!-- Navigation Centrale -->
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Fil des requêtes
+        </a>
+        <a href="create.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Nouvelle requête
+        </a>
+        <a href="admin.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Espace Admin
+        </a>
+        <a href="settings.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Paramètres
+        </a>
+      </nav>
+
+      <!-- Actions Droite : Notifications & Profil -->
+      <div class="header-actions">
+        <!-- Notification Dropdown CSS (Story 12) -->
+        <div class="notification-wrapper" tabindex="0">
+          <button class="btn-icon" aria-label="Afficher les notifications (3 non lues)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="unread-badge">3</span>
+          </button>
+          <div class="notification-dropdown">
+            <div class="notification-header">
+              <span>Notifications Campus</span>
+              <span class="badge badge-validated">3 Récentes</span>
+            </div>
+            <div class="notif-item valid">
+              <span class="notif-icon">✅</span>
+              <div>
+                <strong>Requête validée !</strong>
+                <p>« Micro-ondes Bâtiment B » a été approuvée par l'administration.</p>
+              </div>
+            </div>
+            <div class="notif-item">
+              <span class="notif-icon">🎯</span>
+              <div>
+                <strong>Seuil de 100 votes atteint</strong>
+                <p>« Extension coworking 22h » est transmise à la commission.</p>
+              </div>
+            </div>
+            <div class="notif-item">
+              <span class="notif-icon">💬</span>
+              <div>
+                <strong>Nouveau débat</strong>
+                <p>5 nouveaux avis sur le projet « Tournoi E-Sport ».</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profil Utilisateur -->
+        <a href="login.html" class="user-profile-badge" title="Connecté en tant qu'Alban E.">
+          <div class="avatar">AE</div>
+          <span>Alban E.</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bannière Hero & Présentation Product Goal -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="badge badge-voting" style="margin-bottom: 0.75rem;">Plateforme Démocratique du Campus</span>
+        <h1 class="hero-title">Votre voix façonne la vie étudiante sur le <span class="hero-highlight">Campus RAMMSS</span>.</h1>
+        <p class="hero-desc">
+          Offrir à la communauté une plateforme collaborative permettant de <strong>soumettre</strong>, de <strong>consulter</strong> et de <strong>valider des requêtes</strong> sous forme de sondage démocratique afin d'améliorer concrètement notre quotidien.
+        </p>
+        <div class="hero-actions">
+          <a href="create.html" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Proposer une idée
+          </a>
+          <a href="#feed" class="btn btn-secondary btn-lg">Explorer les sondages en cours</a>
+        </div>
+      </div>
+
+      <!-- Statistiques en direct du Campus -->
+      <div class="hero-stats-card">
+        <div class="stat-box">
+          <div class="stat-value">148</div>
+          <div class="stat-label">Requêtes déposées</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--success);">38</div>
+          <div class="stat-label">Validées par le Campus</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--primary);">2 410</div>
+          <div class="stat-label">Votes étudiants exprimés</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--warning);">100</div>
+          <div class="stat-label">Seuil de votes requis</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenu Principal : Contrôles & Grille de Requêtes -->
+  <main class="container" id="feed">
+    <!-- Barre de Contrôles, Filtres et Tri (Story 11) -->
+    <div class="feed-controls">
+      <div class="controls-card">
+        <!-- Filtres par catégorie et statut -->
+        <div class="filter-pills" role="tablist" aria-label="Filtres des requêtes">
+          <button class="filter-pill active" role="tab" aria-selected="true">Toutes les requêtes (148)</button>
+          <button class="filter-pill" role="tab" aria-selected="false">🔥 Plus populaires</button>
+          <button class="filter-pill" role="tab" aria-selected="false">⏳ Vote en cours</button>
+          <button class="filter-pill" role="tab" aria-selected="false">🎯 Seuil atteint (12)</button>
+          <button class="filter-pill" role="tab" aria-selected="false">✅ Validées (38)</button>
+        </div>
+
+        <!-- Recherche et Sélecteur de Tri -->
+        <div class="sort-and-search">
+          <div class="search-input-wrapper">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" class="search-input" placeholder="Rechercher une requête..." aria-label="Rechercher une requête">
+          </div>
+          <select class="select-sort" aria-label="Trier les résultats">
+            <option>Trier par : Popularité (Votes)</option>
+            <option>Trier par : Plus récentes</option>
+            <option>Trier par : Urgence validation</option>
+            <option>Trier par : Pourcentage Pour</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout Grille : Flux de requêtes + Barre latérale -->
+    <div class="feed-layout">
+      <!-- Flux de requêtes (Story 2) -->
+      <section class="feed-stream" aria-label="Liste des requêtes du campus">
+
+        <!-- Carte 1 : Requête Validée par le Campus (Story 12) -->
+        <article class="request-card">
+          <div class="card-top">
+            <div class="card-author-meta">
+              <div class="avatar">LM</div>
+              <div class="author-info">
+                <span class="author-name">Léa Martin</span>
+                <span class="post-date">Publié il y a 5 jours &bull; Promo B2 Fullstack</span>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge badge-category">Équipements & Locaux</span>
+              <span class="badge badge-validated">✅ Validée par le Campus</span>
+            </div>
+          </div>
+
+          <h2 class="card-title">
+            <a href="detail.html">Installation de 3 micro-ondes supplémentaires et d'un point d'eau fraîche au Bâtiment B</a>
+          </h2>
+          <p class="card-desc">
+            Aux heures de pointe du déjeuner, l'attente dépasse régulièrement 25 minutes devant l'unique micro-ondes. L'ajout de 3 appareils et d'une fontaine à eau filtrée permettra d'améliorer grandement le confort et la fluidité des pauses déjeuner des étudiants.
+          </p>
+
+          <!-- Jauge de Vote Tripartite (Story 10) -->
+          <div class="vote-gauge-container">
+            <div class="vote-gauge-header">
+              <span>Résultats du sondage (369 votes)</span>
+              <strong style="color: var(--success);">93% Favorable &bull; Seuil largement atteint</strong>
+            </div>
+            <div class="vote-ratio-bar" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100">
+              <div class="bar-pro" style="width: 93%;" title="342 Pour"></div>
+              <div class="bar-neutral" style="width: 4%;" title="15 Neutre"></div>
+              <div class="bar-con" style="width: 3%;" title="12 Contre"></div>
+            </div>
+            <div class="vote-stats-text">
+              <span class="vote-stat-item pro">👍 342 Pour (93%)</span>
+              <span class="vote-stat-item neutral">⚖️ 15 Neutre (4%)</span>
+              <span class="vote-stat-item con">👎 12 Contre (3%)</span>
+            </div>
+          </div>
+
+          <!-- Ligne d'action de vote et liens -->
+          <div class="vote-actions-row">
+            <div class="vote-buttons-group">
+              <button class="btn-vote btn-vote-pro" aria-label="Voter Pour">👍 Pour</button>
+              <button class="btn-vote btn-vote-neutral" aria-label="Voter Neutre">⚖️ Neutre</button>
+              <button class="btn-vote btn-vote-con" aria-label="Voter Contre">👎 Contre</button>
+            </div>
+            <div class="card-footer-links">
+              <span class="card-meta-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                42 commentaires
+              </span>
+              <a href="detail.html" class="btn btn-secondary btn-sm">Consulter le dossier &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Carte 2 : Seuil atteint - En commission (Story 5 & 10) -->
+        <article class="request-card">
+          <div class="card-top">
+            <div class="card-author-meta">
+              <div class="avatar">TB</div>
+              <div class="author-info">
+                <span class="author-name">Thomas Bernard</span>
+                <span class="post-date">Publié il y a 2 jours &bull; Délégué B3</span>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge badge-category">Espaces de travail</span>
+              <span class="badge badge-threshold">🎯 Seuil atteint (189/100)</span>
+            </div>
+          </div>
+
+          <h2 class="card-title">
+            <a href="detail.html">Extension des horaires d'ouverture des salles de projet et coworking jusqu'à 22h00</a>
+          </h2>
+          <p class="card-desc">
+            Pendant les périodes de rendus de projets et de Hackathons, la fermeture à 19h00 oblige les groupes à se disperser ou à travailler dans des conditions compliquées. Nous demandons l'ouverture sécurisée par badge jusqu'à 22h00.
+          </p>
+
+          <div class="vote-gauge-container">
+            <div class="vote-gauge-header">
+              <span>Résultats du sondage (244 votes)</span>
+              <strong style="color: var(--primary);">77% Favorable &bull; En examen commission</strong>
+            </div>
+            <div class="vote-ratio-bar" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100">
+              <div class="bar-pro" style="width: 77%;"></div>
+              <div class="bar-neutral" style="width: 13%;"></div>
+              <div class="bar-con" style="width: 10%;"></div>
+            </div>
+            <div class="vote-stats-text">
+              <span class="vote-stat-item pro">👍 189 Pour (77%)</span>
+              <span class="vote-stat-item neutral">⚖️ 31 Neutre (13%)</span>
+              <span class="vote-stat-item con">👎 24 Contre (10%)</span>
+            </div>
+          </div>
+
+          <div class="vote-actions-row">
+            <div class="vote-buttons-group">
+              <button class="btn-vote btn-vote-pro">👍 Pour</button>
+              <button class="btn-vote btn-vote-neutral">⚖️ Neutre</button>
+              <button class="btn-vote btn-vote-con">👎 Contre</button>
+            </div>
+            <div class="card-footer-links">
+              <span class="card-meta-link">💬 28 avis</span>
+              <a href="detail.html" class="btn btn-secondary btn-sm">Détails & Avis &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Carte 3 : Requête Anonyme (Story 8: Anonymisation) -->
+        <article class="request-card">
+          <div class="card-top">
+            <div class="card-author-meta">
+              <div class="avatar avatar-anon">🎭</div>
+              <div class="author-info">
+                <span class="author-name">Étudiant Anonyme</span>
+                <span class="post-date">Publié hier &bull; Identité protégée</span>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge badge-category">Vie étudiante & Loisirs</span>
+              <span class="badge badge-anon">🎭 Requête Anonyme</span>
+              <span class="badge badge-voting">Vote en cours (95/100)</span>
+            </div>
+          </div>
+
+          <h2 class="card-title">
+            <a href="detail.html">Création d'un pôle E-Sport et organisation d'un grand tournoi inter-promos d'hiver</a>
+          </h2>
+          <p class="card-desc">
+            Proposition de mettre en place une association étudiante dédiée à l'e-sport avec des soirées compétitives (Rocket League, Smash Bros, Valorant) pour renforcer la cohésion d'équipe et l'intégration des nouveaux arrivants.
+          </p>
+
+          <div class="vote-gauge-container">
+            <div class="vote-gauge-header">
+              <span>Résultats du sondage (115 votes)</span>
+              <strong style="color: var(--primary);">83% Favorable &bull; Plus que 5 votes pour le seuil !</strong>
+            </div>
+            <div class="vote-ratio-bar" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100">
+              <div class="bar-pro" style="width: 83%;"></div>
+              <div class="bar-neutral" style="width: 10%;"></div>
+              <div class="bar-con" style="width: 7%;"></div>
+            </div>
+            <div class="vote-stats-text">
+              <span class="vote-stat-item pro">👍 95 Pour (83%)</span>
+              <span class="vote-stat-item neutral">⚖️ 12 Neutre (10%)</span>
+              <span class="vote-stat-item con">👎 8 Contre (7%)</span>
+            </div>
+          </div>
+
+          <div class="vote-actions-row">
+            <div class="vote-buttons-group">
+              <button class="btn-vote btn-vote-pro">👍 Pour</button>
+              <button class="btn-vote btn-vote-neutral">⚖️ Neutre</button>
+              <button class="btn-vote btn-vote-con">👎 Contre</button>
+            </div>
+            <div class="card-footer-links">
+              <span class="card-meta-link">💬 19 avis</span>
+              <a href="detail.html" class="btn btn-secondary btn-sm">Détails & Avis &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Carte 4 : Requête Écologie (Story 2 & 10) -->
+        <article class="request-card">
+          <div class="card-top">
+            <div class="card-author-meta">
+              <div class="avatar">CD</div>
+              <div class="author-info">
+                <span class="author-name">Clara Dupont</span>
+                <span class="post-date">Publié il y a 3 jours &bull; Eco-déléguée B1</span>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge badge-category">Écologie & RSE</span>
+              <span class="badge badge-voting">Vote en cours (67/100)</span>
+            </div>
+          </div>
+
+          <h2 class="card-title">
+            <a href="detail.html">Mise en place de bacs de compost et collecte dédiée au recyclage du matériel électronique</a>
+          </h2>
+          <p class="card-desc">
+            Installation d'un point de collecte responsable pour les composants électroniques obsolètes (câbles, cartes, écrans) et de bacs de compost pour les déchets organiques de la cafétéria.
+          </p>
+
+          <div class="vote-gauge-container">
+            <div class="vote-gauge-header">
+              <span>Résultats du sondage (91 votes)</span>
+              <strong>74% Favorable (67/100 requis)</strong>
+            </div>
+            <div class="vote-ratio-bar">
+              <div class="bar-pro" style="width: 74%;"></div>
+              <div class="bar-neutral" style="width: 21%;"></div>
+              <div class="bar-con" style="width: 5%;"></div>
+            </div>
+            <div class="vote-stats-text">
+              <span class="vote-stat-item pro">👍 67 Pour (74%)</span>
+              <span class="vote-stat-item neutral">⚖️ 19 Neutre (21%)</span>
+              <span class="vote-stat-item con">👎 5 Contre (5%)</span>
+            </div>
+          </div>
+
+          <div class="vote-actions-row">
+            <div class="vote-buttons-group">
+              <button class="btn-vote btn-vote-pro">👍 Pour</button>
+              <button class="btn-vote btn-vote-neutral">⚖️ Neutre</button>
+              <button class="btn-vote btn-vote-con">👎 Contre</button>
+            </div>
+            <div class="card-footer-links">
+              <span class="card-meta-link">💬 11 avis</span>
+              <a href="detail.html" class="btn btn-secondary btn-sm">Détails & Avis &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Sidebar Latérale : Processus Démocratique & Raccourcis (Story 9) -->
+      <aside class="feed-sidebar">
+        <!-- Encadré Story 9 : Structure & Validation d'une Requête -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            Cycle de validation démocratique
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Chaque proposition suit une charte transparente pour garantir la faisabilité et le respect des règles du campus :
+          </p>
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="step-num">1</span>
+              <div class="step-content">
+                <strong>Soumission de l'idée</strong>
+                <p>Création avec titre, description et choix d'anonymat optionnel.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-num">2</span>
+              <div class="step-content">
+                <strong>Vote communautaire</strong>
+                <p>Ouvert à tous les étudiants sous forme de sondage Pour / Neutre / Contre.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-num">3</span>
+              <div class="step-content">
+                <strong>Palier des 100 votes</strong>
+                <p>Dès que le seuil de 100 votes et 60% d'avis favorables est atteint, passage en commission.</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-num">4</span>
+              <div class="step-content">
+                <strong>Validation Campus</strong>
+                <p>L'administration et le BDE valident le budget et la mise en œuvre.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Encadré Raccourcis & Liens utiles -->
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Espaces et Accès</h3>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="create.html" class="btn btn-primary" style="width: 100%;">+ Proposer une requête</a>
+            <a href="admin.html" class="btn btn-secondary" style="width: 100%;">Accéder à l'Espace Admin</a>
+            <a href="settings.html" class="btn btn-secondary" style="width: 100%;">Mes Paramètres</a>
+            <a href="login.html" class="btn btn-secondary" style="width: 100%;">Page de Connexion</a>
+            <a href="admin-register.html" class="btn btn-secondary" style="width: 100%;">Inscription Staff / Admin</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Campus Life &bull; Groupe RAMMSS</strong>
+        <p style="font-size: 0.8rem; margin-top: 0.25rem;">Projet collaboratif de démocratie étudiante et amélioration du campus.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Fil des requêtes</a>
+        <a href="create.html">Nouvelle requête</a>
+        <a href="admin.html">Espace Admin</a>
+        <a href="settings.html">Paramètres</a>
+        <a href="login.html">Connexion</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

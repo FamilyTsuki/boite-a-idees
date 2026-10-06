@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Life - Créer une nouvelle requête pour améliorer la vie étudiante.">
+  <title>Proposer une Requête | Campus Life RAMMSS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- En-tête Principal & Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Accueil Campus Life">
+        <img src="assets/logo.svg" alt="Logo Campus Life RAMMSS" width="200" height="48">
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Fil des requêtes
+        </a>
+        <a href="create.html" class="nav-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Nouvelle requête
+        </a>
+        <a href="admin.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Espace Admin
+        </a>
+        <a href="settings.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Paramètres
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="user-profile-badge">
+          <div class="avatar">AE</div>
+          <span>Alban E.</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Fil d'Ariane -->
+  <div class="container" style="padding-top: 1.5rem;">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">&larr; Retour au fil</a>
+      <span>/</span>
+      <span>Proposer une nouvelle requête</span>
+    </nav>
+  </div>
+
+  <main class="container" style="padding-bottom: 3.5rem;">
+    <div class="feed-layout">
+      <!-- Colonne Formulaire (Story 3, 8) -->
+      <section class="form-card">
+        <div style="margin-bottom: 1.75rem;">
+          <span class="badge badge-voting" style="margin-bottom: 0.5rem;">Initiative Étudiante</span>
+          <h1 style="font-size: 1.75rem; font-weight: 800; color: var(--text-main);">Proposer une amélioration pour le campus</h1>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 0.25rem;">
+            Partagez votre idée avec la communauté. Si elle recueille plus de 100 votes favorables, elle sera officiellement soumise à la commission du campus.
+          </p>
+        </div>
+
+        <form action="index.html" method="get">
+          <!-- Titre de la Requête (Critère d'acceptation 1) -->
+          <div class="form-group">
+            <label for="req-title" class="form-label">
+              Titre de la requête <span style="color: var(--danger);">*</span>
+              <span class="form-hint">Clair et concis (max. 100 car.)</span>
+            </label>
+            <input type="text" id="req-title" class="form-control" placeholder="Ex: Installation d'un abri vélo sécurisé au bâtiment A" required maxlength="100">
+          </div>
+
+          <!-- Catégorie et Localisation -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label for="req-category" class="form-label">Catégorie <span style="color: var(--danger);">*</span></label>
+              <select id="req-category" class="form-control" required>
+                <option value="">Sélectionner une catégorie</option>
+                <option value="equipements">Équipements & Matériel</option>
+                <option value="coworking">Espaces de travail & Coworking</option>
+                <option value="vie-etudiante">Vie étudiante & Événements</option>
+                <option value="restauration">Cafétéria & Restauration</option>
+                <option value="ecologie">Écologie & Développement durable</option>
+                <option value="pedagogie">Pédagogie & Outils d'apprentissage</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="req-location" class="form-label">Lieu concerné</label>
+              <input type="text" id="req-location" class="form-control" placeholder="Ex: Bâtiment A, Cafétéria, Extérieur...">
+            </div>
+          </div>
+
+          <!-- Description Détaillée (Critère d'acceptation 2) -->
+          <div class="form-group">
+            <label for="req-desc" class="form-label">
+              Description et justification du besoin <span style="color: var(--danger);">*</span>
+              <span class="form-hint">Expliquez le problème actuel et votre solution</span>
+            </label>
+            <textarea id="req-desc" class="form-control" rows="6" placeholder="Décrivez en détail la situation actuelle, les difficultés rencontrées par les étudiants et la proposition concrète d'amélioration..." required></textarea>
+          </div>
+
+          <!-- Estimation d'impact -->
+          <div class="form-group">
+            <label for="req-impact" class="form-label">
+              Impact estimé sur le campus
+              <span class="form-hint">Combien d'étudiants en bénéficieront ?</span>
+            </label>
+            <input type="text" id="req-impact" class="form-control" placeholder="Ex: Toute la promo B1/B2, cyclistes réguliers (environ 50 étudiants/jour)...">
+          </div>
+
+          <!-- Option Anonymisation des requêtes (Story 8) -->
+          <label class="switch-container">
+            <div class="switch-details">
+              <span class="switch-icon">🎭</span>
+              <div>
+                <strong class="switch-title">Publier cette requête de manière 100% anonyme</strong>
+                <span class="switch-desc">Votre nom, prénom et promo ne seront affichés ni publiquement, ni aux autres étudiants.</span>
+              </div>
+            </div>
+            <div class="switch-toggle">
+              <input type="checkbox" id="anon-switch" name="is_anonymous">
+              <span class="slider"></span>
+            </div>
+          </label>
+
+          <!-- Notification d'engagement -->
+          <div class="alert alert-info">
+            <span style="font-size: 1.25rem;">ℹ️</span>
+            <div>
+              <strong>Charte de bienveillance du Campus RAMMSS :</strong>
+              <p>Votre requête sera visible immédiatement dans le fil dès sa validation technique par l'équipe de modération. Vous recevrez une notification par email dès que les votes commenceront.</p>
+            </div>
+          </div>
+
+          <!-- Boutons de Soumission (Critère d'acceptation 3) -->
+          <div style="display: flex; align-items: center; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
+            <a href="index.html" class="btn btn-secondary">Annuler</a>
+            <button type="submit" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              Soumettre ma requête au vote
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Sidebar d'aide & Structure de validation (Story 9) -->
+      <aside class="feed-sidebar">
+        <div class="sidebar-card">
+          <h2 class="sidebar-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            Conseils pour une requête réussie
+          </h2>
+          <ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.75rem;">
+            <li><strong>Soyez précis dans le titre :</strong> Évitez les formules vagues et nommez directement l'action souhaitée.</li>
+            <li><strong>Chiffrez l'utilité :</strong> Montrez à l'administration pourquoi cet investissement est rentable ou indispensable.</li>
+            <li><strong>Proposez des solutions réalistes :</strong> Tenez compte des contraintes de sécurité et d'espace du campus.</li>
+            <li><strong>Mobilisez votre promo :</strong> Dès publication, partagez le lien du sondage pour atteindre rapidement le seuil des 100 votes.</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h2 class="sidebar-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            Calendrier des commissions
+          </h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+            La commission consultative Direction / BDE se réunit chaque premier jeudi du mois pour examiner les requêtes ayant franchi le seuil.
+          </p>
+          <div style="margin-top: 1rem; padding: 0.75rem; border-radius: var(--radius-md); background-color: var(--primary-light); color: var(--primary); font-weight: 600; font-size: 0.825rem; text-align: center;">
+            Prochaine commission : 05 Novembre 2026
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Campus Life &bull; Groupe RAMMSS</strong>
+        <p style="font-size: 0.8rem; margin-top: 0.25rem;">Projet collaboratif de démocratie étudiante et amélioration du campus.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Fil des requêtes</a>
+        <a href="create.html">Nouvelle requête</a>
+        <a href="admin.html">Espace Admin</a>
+        <a href="settings.html">Paramètres</a>
+        <a href="login.html">Connexion</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

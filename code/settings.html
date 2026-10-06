@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Life - Paramètres personnels, personnalisation du thème et notifications.">
+  <title>Paramètres & Profil | Campus Life RAMMSS</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Bascule dynamique en pur CSS via :has() */
+    body:has(#theme-dark:checked) {
+      --bg-body: #0b0f19;
+      --bg-surface: #111827;
+      --bg-surface-elevated: #1f2937;
+      --bg-muted: #1e293b;
+      --text-main: #f3f4f6;
+      --text-muted: #94a3b8;
+      --border-color: #1f2937;
+      --neutral-border: #334155;
+      --primary-light: rgba(79, 70, 229, 0.2);
+    }
+
+    .theme-picker-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .theme-card-option {
+      position: relative;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: all var(--transition-fast);
+      background-color: var(--bg-surface);
+    }
+
+    .theme-card-option:hover {
+      border-color: var(--primary);
+    }
+
+    .theme-card-option input[type="radio"] {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+    }
+
+    .theme-card-option input[type="radio"]:checked ~ .theme-name {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .theme-preview-box {
+      height: 60px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .preview-light {
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
+
+    .preview-dark {
+      background-color: #0b0f19;
+      border: 1px solid #334155;
+      color: #f3f4f6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- En-tête Principal & Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Accueil Campus Life">
+        <img src="assets/logo.svg" alt="Logo Campus Life RAMMSS" width="200" height="48">
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Fil des requêtes
+        </a>
+        <a href="create.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Nouvelle requête
+        </a>
+        <a href="admin.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Espace Admin
+        </a>
+        <a href="settings.html" class="nav-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Paramètres
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="user-profile-badge">
+          <div class="avatar">AE</div>
+          <span>Alban E.</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu Principal des Paramètres (Story 4) -->
+  <main class="container-narrow" style="padding-block: 2.5rem 4rem;">
+    <div style="margin-bottom: 2rem;">
+      <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-main);">Paramètres de l'application</h1>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 0.35rem;">
+        Personnalisez votre interface, vos notifications de vote et consultez vos accréditations campus.
+      </p>
+    </div>
+
+    <form action="#" method="get" style="display: flex; flex-direction: column; gap: 2rem;">
+
+      <!-- Section 1 : Thème de l'application (Critère d'acceptation 1 : Clair / Sombre) -->
+      <section class="form-card" aria-labelledby="theme-heading">
+        <h2 id="theme-heading" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+          🎨 Thème et Apparence
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Choisissez le mode visuel de l'application. Cliquez sur Sombre pour tester l'adaptation immédiate du thème.
+        </p>
+
+        <div class="theme-picker-group">
+          <!-- Option Clair -->
+          <label class="theme-card-option">
+            <input type="radio" name="app_theme" id="theme-light" value="light" checked>
+            <div class="theme-preview-box preview-light">Mode Clair ☀️</div>
+            <span class="theme-name" style="font-size: 0.9rem; font-weight: 600;">Clair (Par défaut)</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Contraste optimal de jour</span>
+          </label>
+
+          <!-- Option Sombre -->
+          <label class="theme-card-option">
+            <input type="radio" name="app_theme" id="theme-dark" value="dark">
+            <div class="theme-preview-box preview-dark">Mode Sombre 🌙</div>
+            <span class="theme-name" style="font-size: 0.9rem; font-weight: 600;">Sombre</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Idéal pour la nuit et le repos visuel</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Section 2 : Notifications (Critère d'acceptation 2 : Activer/Désactiver) -->
+      <section class="form-card" aria-labelledby="notif-heading">
+        <h2 id="notif-heading" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+          🔔 Notifications et Alertes (Story 12)
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Gérez les alertes envoyées par email et sur le navigateur lors des événements clés du campus.
+        </p>
+
+        <!-- Toggle 1 : Validation de Requête (Story 12) -->
+        <label class="switch-container">
+          <div class="switch-details">
+            <span class="switch-icon">🎉</span>
+            <div>
+              <strong class="switch-title">Notification lors de la validation d'une requête</strong>
+              <span class="switch-desc">Recevoir un email prioritaire dès qu'une de vos requêtes est officiellement validée par le campus.</span>
+            </div>
+          </div>
+          <div class="switch-toggle">
+            <input type="checkbox" name="notif_validation" checked>
+            <span class="slider"></span>
+          </div>
+        </label>
+
+        <!-- Toggle 2 : Seuil des 100 votes atteint -->
+        <label class="switch-container">
+          <div class="switch-details">
+            <span class="switch-icon">🎯</span>
+            <div>
+              <strong class="switch-title">Alerte palier des 100 votes</strong>
+              <span class="switch-desc">Être prévenu dès qu'une requête suivie atteint le seuil requis pour l'examen en commission.</span>
+            </div>
+          </div>
+          <div class="switch-toggle">
+            <input type="checkbox" name="notif_threshold" checked>
+            <span class="slider"></span>
+          </div>
+        </label>
+
+        <!-- Toggle 3 : Nouveaux avis sur mes idées -->
+        <label class="switch-container">
+          <div class="switch-details">
+            <span class="switch-icon">💬</span>
+            <div>
+              <strong class="switch-title">Commentaires et contributions d'étudiants</strong>
+              <span class="switch-desc">Avertissement lorsqu'un camarade de promo répond ou commente une de vos requêtes.</span>
+            </div>
+          </div>
+          <div class="switch-toggle">
+            <input type="checkbox" name="notif_comments">
+            <span class="slider"></span>
+          </div>
+        </label>
+      </section>
+
+      <!-- Section 3 : Informations & Droits du Compte (Critère d'acceptation 3) -->
+      <section class="form-card" aria-labelledby="account-heading">
+        <h2 id="account-heading" style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+          👤 Droits et Informations du Compte
+        </h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Consultez vos accréditations de vote vérifiées par l'annuaire de l'école.
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+          <div class="form-group">
+            <label class="form-label" for="user-fullname">Nom complet</label>
+            <input type="text" id="user-fullname" class="form-control" value="Alban Elie" readonly style="background-color: var(--bg-muted);">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="user-email">Email étudiant vérifié</label>
+            <input type="email" id="user-email" class="form-control" value="alban.elie@coda.school" readonly style="background-color: var(--bg-muted);">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+          <div class="form-group">
+            <label class="form-label">Statut et Droits de vote</label>
+            <div style="padding: 0.75rem 1rem; border-radius: var(--radius-md); background-color: var(--success-light); border: 1px solid var(--success-border); color: #065f46; font-weight: 600; font-size: 0.875rem;">
+              ✅ Droit de vote actif (Promo B2 Dev FullStack)
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Rôle sur la plateforme</label>
+            <div style="padding: 0.75rem 1rem; border-radius: var(--radius-md); background-color: var(--primary-light); border: 1px solid var(--primary-border); color: var(--primary); font-weight: 600; font-size: 0.875rem;">
+              🎓 Étudiant contributeur
+            </div>
+          </div>
+        </div>
+
+        <!-- Préférence de confidentialité globale (Story 8) -->
+        <label class="switch-container">
+          <div class="switch-details">
+            <span class="switch-icon">🎭</span>
+            <div>
+              <strong class="switch-title">Mode Anonymat par défaut (Story 8)</strong>
+              <span class="switch-desc">Cocher automatiquement l'anonymat à chaque nouvelle proposition de requête.</span>
+            </div>
+          </div>
+          <div class="switch-toggle">
+            <input type="checkbox" name="default_anon">
+            <span class="slider"></span>
+          </div>
+        </label>
+      </section>
+
+      <!-- Boutons d'Action -->
+      <div style="display: flex; align-items: center; justify-content: flex-end; gap: 1rem;">
+        <a href="index.html" class="btn btn-secondary">Annuler</a>
+        <button type="button" class="btn btn-primary btn-lg" onclick="alert('Vos préférences ont été enregistrées avec succès !')">
+          Enregistrer les modifications
+        </button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Campus Life &bull; Groupe RAMMSS</strong>
+        <p style="font-size: 0.8rem; margin-top: 0.25rem;">Projet collaboratif de démocratie étudiante et amélioration du campus.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Fil des requêtes</a>
+        <a href="create.html">Nouvelle requête</a>
+        <a href="admin.html">Espace Admin</a>
+        <a href="settings.html">Paramètres</a>
+        <a href="login.html">Connexion</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Life - Espace d'administration et modération des requêtes du campus.">
+  <title>Espace de Gestion & Modération | Campus Life RAMMSS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- En-tête Principal & Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="Accueil Campus Life">
+        <img src="assets/logo.svg" alt="Logo Campus Life RAMMSS" width="200" height="48">
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Fil des requêtes
+        </a>
+        <a href="create.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Nouvelle requête
+        </a>
+        <a href="admin.html" class="nav-link active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Espace Admin
+        </a>
+        <a href="settings.html" class="nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          Paramètres
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="user-profile-badge" style="border-color: var(--primary); background-color: var(--primary-light);">
+          <div class="avatar" style="background-color: var(--primary); color: #fff;">AD</div>
+          <span style="color: var(--primary);">Admin Staff</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu Principal : Espace de Gestion (Story 7) -->
+  <main class="container" style="padding-block: 2.5rem 4rem;">
+    <!-- En-tête du Dashboard -->
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+      <div>
+        <span class="badge badge-validated">Espace de Modération & Commission (Story 7)</span>
+        <h1 style="font-size: 2rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;">
+          Gestion des requêtes & Décisions campus
+        </h1>
+        <p style="font-size: 0.925rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Examinez les propositions soumises, modérez les contenus inappropriés et validez officiellement les projets ayant atteint le seuil des 100 votes.
+        </p>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="admin-register.html" class="btn btn-secondary btn-sm">+ Inscrire un administrateur</a>
+        <a href="#audit-log" class="btn btn-secondary btn-sm">Journal d'audit</a>
+      </div>
+    </div>
+
+    <!-- KPIs Statistiques Administrateur -->
+    <section class="admin-stats-grid" aria-label="Statistiques de modération">
+      <div class="admin-stat-card">
+        <div>
+          <div class="stat-value" style="color: var(--warning);">5</div>
+          <div class="stat-label">À modérer en priorité</div>
+        </div>
+        <div class="btn-icon" style="background-color: var(--warning-light); color: var(--warning);">⏳</div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div>
+          <div class="stat-value" style="color: var(--primary);">3</div>
+          <div class="stat-label">Seuil 100 votes franchi</div>
+        </div>
+        <div class="btn-icon" style="background-color: var(--primary-light); color: var(--primary);">🎯</div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div>
+          <div class="stat-value" style="color: var(--success);">38</div>
+          <div class="stat-label">Validées ce semestre</div>
+        </div>
+        <div class="btn-icon" style="background-color: var(--success-light); color: var(--success);">✅</div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div>
+          <div class="stat-value" style="color: var(--danger);">2</div>
+          <div class="stat-label">Requêtes signalées</div>
+        </div>
+        <div class="btn-icon" style="background-color: var(--danger-light); color: var(--danger);">⚠️</div>
+      </div>
+    </section>
+
+    <!-- Table Interactive de Gestion et Modération (Story 7) -->
+    <section class="form-card" style="padding: 1.5rem; margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700;">File des requêtes à traiter</h2>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <input type="search" class="form-control" placeholder="Filtrer la table..." style="padding: 0.4rem 0.8rem; font-size: 0.85rem; width: 220px;">
+          <select class="form-control" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; width: auto;">
+            <option>Tous les états</option>
+            <option>Seuil atteint (Prêt commission)</option>
+            <option>En attente de modération</option>
+            <option>Signalées</option>
+            <option>Validées</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Réf & Date</th>
+              <th>Titre de la requête</th>
+              <th>Auteur (ou Anonymat)</th>
+              <th>Catégorie</th>
+              <th>Votes (Pour / Contre)</th>
+              <th>Statut actuel</th>
+              <th>Actions de modération</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Ligne 1 : Seuil atteint prêt pour validation (Story 12) -->
+            <tr>
+              <td>
+                <strong>#REQ-048</strong><br>
+                <span class="post-date">Hier, 14h20</span>
+              </td>
+              <td>
+                <strong style="color: var(--text-main);">Extension des horaires coworking jusqu'à 22h</strong><br>
+                <span style="font-size: 0.775rem; color: var(--text-muted);">Demande d'accès par badge sécurisé pour les projets de groupe</span>
+              </td>
+              <td>
+                <span style="font-weight: 600;">Thomas B.</span><br>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Délégué B3</span>
+              </td>
+              <td><span class="badge badge-category">Espaces de travail</span></td>
+              <td>
+                <strong style="color: var(--success);">189 👍</strong> / <span style="color: var(--danger);">24 👎</span><br>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">(77% favorable)</span>
+              </td>
+              <td><span class="badge badge-threshold">🎯 Seuil atteint (189/100)</span></td>
+              <td>
+                <div class="action-buttons">
+                  <a href="#modal-approve" class="btn btn-success btn-sm" title="Valider officiellement (Campus) et notifier l'auteur (Story 12)">
+                    Valider (Campus)
+                  </a>
+                  <button type="button" class="btn btn-secondary btn-sm" title="Demander des précisions à l'auteur">
+                    Précisions
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Ligne 2 : En attente de modération initiale -->
+            <tr>
+              <td>
+                <strong>#REQ-049</strong><br>
+                <span class="post-date">Ce matin, 09h15</span>
+              </td>
+              <td>
+                <strong style="color: var(--text-main);">Aménagement d'un espace sieste / détente silencieux</strong><br>
+                <span style="font-size: 0.775rem; color: var(--text-muted);">Demande de 4 poufs géants et suppression des écrans en salle A04</span>
+              </td>
+              <td>
+                <span class="badge badge-anon">🎭 Anonyme</span><br>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Identité masquée</span>
+              </td>
+              <td><span class="badge badge-category">Bien-être</span></td>
+              <td>
+                <span>42 👍</span> / <span>18 👎</span>
+              </td>
+              <td><span class="badge badge-pending">⏳ Modération initiale</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button type="button" class="btn btn-primary btn-sm" title="Approuver pour mise au vote public">
+                    Approuver
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm" title="Rejeter le contenu">
+                    Rejeter
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Ligne 3 : Requête Validée (micro-ondes) -->
+            <tr>
+              <td>
+                <strong>#REQ-042</strong><br>
+                <span class="post-date">28 Sept. 2026</span>
+              </td>
+              <td>
+                <strong style="color: var(--text-main);">Micro-ondes supplémentaires Bâtiment B</strong><br>
+                <span style="font-size: 0.775rem; color: var(--text-muted);">Budget alloué : 850€ &bull; Commande passée</span>
+              </td>
+              <td>
+                <span>Léa Martin</span><br>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Promo B2</span>
+              </td>
+              <td><span class="badge badge-category">Équipements</span></td>
+              <td>
+                <strong style="color: var(--success);">342 👍</strong> / <span>12 👎</span>
+              </td>
+              <td><span class="badge badge-validated">✅ Validée Officiellement</span></td>
+              <td>
+                <div class="action-buttons">
+                  <a href="detail.html" class="btn btn-secondary btn-sm">Consulter</a>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Ligne 4 : Requête Signalée -->
+            <tr>
+              <td>
+                <strong>#REQ-047</strong><br>
+                <span class="post-date">03 Octobre</span>
+              </td>
+              <td>
+                <strong style="color: var(--text-main);">Tournoi de cartes payant avec mise en argent</strong><br>
+                <span style="font-size: 0.775rem; color: var(--danger);">Signalée : Non-conforme au règlement intérieur du campus</span>
+              </td>
+              <td>
+                <span class="badge badge-anon">🎭 Anonyme</span>
+              </td>
+              <td><span class="badge badge-category">Événements</span></td>
+              <td>
+                <span>12 👍</span> / <span>65 👎</span>
+              </td>
+              <td><span class="badge badge-rejected">⚠️ Signalée</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button type="button" class="btn btn-danger btn-sm">Rejeter & Archiver</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Modal de Confirmation de Validation en pur CSS via :target (Story 12) -->
+    <div id="modal-approve" style="display: none; position: fixed; inset: 0; background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem;">
+      <div style="background-color: var(--bg-surface); border-radius: var(--radius-xl); max-width: 520px; width: 100%; padding: 2rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color);">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <span style="font-size: 1.75rem;">🎉</span>
+          <h3 style="font-size: 1.35rem; font-weight: 800;">Valider officiellement la requête</h3>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.25rem;">
+          En validant cette requête, vous confirmez l'accord de la commission. L'auteur et tous les participants recevront une <strong>notification automatique par email</strong> (Story 12) et le statut passera en <strong>Validée par le Campus</strong>.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label" for="decision-comment">Commentaire officiel de la direction (public)</label>
+          <textarea id="decision-comment" class="form-control" rows="3" placeholder="Ex: La commission a validé le budget de fonctionnement. Les horaires étendus seront mis en place à partir de lundi prochain..."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+          <a href="admin.html" class="btn btn-secondary">Annuler</a>
+          <a href="index.html" class="btn btn-success">Confirmer & Notifier l'auteur</a>
+        </div>
+      </div>
+    </div>
+    <style>
+      #modal-approve:target {
+        display: flex !important;
+      }
+    </style>
+
+    <!-- Journal d'Audit & Historique des Décisions -->
+    <section class="form-card" id="audit-log" style="padding: 1.5rem;">
+      <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;">Journal des dernières décisions d'administration</h2>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.85rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: var(--radius-md); background-color: var(--bg-muted);">
+          <span><strong>05 Octobre :</strong> Requête <em>#REQ-042 (Micro-ondes Bâtiment B)</em> validée par la Direction des études. Notification envoyée à l'auteur.</span>
+          <span class="badge badge-validated">Approuvé</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: var(--radius-md); background-color: var(--bg-muted);">
+          <span><strong>02 Octobre :</strong> Requête <em>#REQ-048 (Horaires coworking 22h)</em> a franchi le palier des 100 votes et a été inscrite à l'ordre du jour.</span>
+          <span class="badge badge-threshold">Palier 100</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: var(--radius-md); background-color: var(--bg-muted);">
+          <span><strong>29 Septembre :</strong> Requête <em>#REQ-047 (Jeux payants)</em> signalée et suspendue pour non-conformité.</span>
+          <span class="badge badge-rejected">Suspendue</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Campus Life &bull; Groupe RAMMSS</strong>
+        <p style="font-size: 0.8rem; margin-top: 0.25rem;">Espace d'administration et de modération officiel.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Fil des requêtes</a>
+        <a href="create.html">Nouvelle requête</a>
+        <a href="admin.html">Espace Admin</a>
+        <a href="settings.html">Paramètres</a>
+        <a href="login.html">Connexion</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

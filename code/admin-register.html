@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Life - Inscription réservée aux membres de l'administration et du BDE.">
+  <title>Inscription Administrateur | Campus Life RAMMSS</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .admin-auth-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 1.5rem;
+      background: radial-gradient(circle at top, rgba(79, 70, 229, 0.12) 0%, var(--bg-body) 70%);
+    }
+
+    .admin-auth-card {
+      width: 100%;
+      max-width: 580px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 2.25rem;
+      box-shadow: var(--shadow-lg);
+    }
+  </style>
+</head>
+<body class="admin-auth-page">
+
+  <div class="admin-auth-card">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <a href="index.html" aria-label="Retour à l'accueil">
+        <img src="assets/logo.svg" alt="Logo Campus Life RAMMSS" width="220" height="52" style="margin-inline: auto; margin-bottom: 1.25rem;">
+      </a>
+      <span class="badge badge-validated" style="margin-bottom: 0.5rem;">Espace Réservé &bull; Staff & BDE</span>
+      <h1 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;">
+        Création de Compte Administrateur
+      </h1>
+      <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.35rem;">
+        Ce formulaire permet aux membres accrédités de créer un profil de modération et de validation officielle des requêtes (Story 6).
+      </p>
+    </div>
+
+    <form action="admin.html" method="get">
+      <!-- Identité -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-group">
+          <label for="admin-firstname" class="form-label">Prénom <span style="color: var(--danger);">*</span></label>
+          <input type="text" id="admin-firstname" class="form-control" placeholder="Jean" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-lastname" class="form-label">Nom <span style="color: var(--danger);">*</span></label>
+          <input type="text" id="admin-lastname" class="form-control" placeholder="Dupont" required>
+        </div>
+      </div>
+
+      <!-- Email Professionnel -->
+      <div class="form-group">
+        <label for="admin-email" class="form-label">
+          Adresse email institutionnelle / staff <span style="color: var(--danger);">*</span>
+          <span class="form-hint">Doit se terminer par @coda.school ou @campus.fr</span>
+        </label>
+        <input type="email" id="admin-email" class="form-control" placeholder="direction@coda.school" required>
+      </div>
+
+      <!-- Clé secrète d'accréditation du campus -->
+      <div class="form-group">
+        <label for="admin-token" class="form-label">
+          Clé secrète d'accréditation campus <span style="color: var(--danger);">*</span>
+          <span class="form-hint">Fournie par la direction informatique</span>
+        </label>
+        <input type="password" id="admin-token" class="form-control" placeholder="RAMMSS-ADMIN-XXXX-2026" required>
+      </div>
+
+      <!-- Rôle administratif -->
+      <div class="form-group">
+        <label for="admin-role" class="form-label">Fonction / Rôle sur le campus <span style="color: var(--danger);">*</span></label>
+        <select id="admin-role" class="form-control" required>
+          <option value="">Sélectionnez votre attribution</option>
+          <option value="direction">Direction du Campus & Commission Budgétaire</option>
+          <option value="bde">Bureau Des Étudiants (Présidence / Vice-présidence BDE)</option>
+          <option value="scolarite">Responsable Scolarité & Vie Étudiante</option>
+          <option value="logistique">Responsable Logistique, Bâtiments & Matériel</option>
+          <option value="moderation">Modérateur de la charte de bienveillance</option>
+        </select>
+      </div>
+
+      <!-- Mots de passe -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-group">
+          <label for="admin-pwd" class="form-label">Mot de passe <span style="color: var(--danger);">*</span></label>
+          <input type="password" id="admin-pwd" class="form-control" placeholder="••••••••••••" required>
+        </div>
+        <div class="form-group">
+          <label for="admin-pwd-confirm" class="form-label">Confirmation <span style="color: var(--danger);">*</span></label>
+          <input type="password" id="admin-pwd-confirm" class="form-control" placeholder="••••••••••••" required>
+        </div>
+      </div>
+
+      <!-- Engagement Déontologique -->
+      <div class="alert alert-info" style="font-size: 0.8rem;">
+        <span style="font-size: 1.2rem;">🛡️</span>
+        <div>
+          <strong>Responsabilité administrative :</strong>
+          <p>En tant qu'administrateur, vous disposez des droits d'approbation, de modération et de validation officielle des projets du campus. Tout acte de modération est consigné dans le journal d'audit.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.75rem;">
+        <label style="display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">
+          <input type="checkbox" required style="margin-top: 0.2rem;">
+          <span>J'atteste faire partie de l'équipe encadrante ou du bureau du BDE et j'accepte la charte de modération démocratique.</span>
+        </label>
+      </div>
+
+      <!-- Bouton Soumission -->
+      <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
+        Finaliser l'inscription & Accéder au Dashboard &rarr;
+      </button>
+    </form>
+
+    <hr style="border: none; border-top: 1px solid var(--border-color); margin-block: 1.5rem;">
+
+    <div style="text-align: center; font-size: 0.85rem;">
+      <p style="color: var(--text-muted);">
+        Vous avez déjà un compte ?
+        <a href="login.html" style="font-weight: 600;">Se connecter</a>
+        <span> &bull; </span>
+        <a href="admin.html" style="font-weight: 600;">Accès direct Espace Admin</a>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
