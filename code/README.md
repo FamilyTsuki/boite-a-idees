@@ -77,3 +77,4 @@ Vous pouvez ouvrir directement les fichiers dans votre navigateur web préféré
    python3 -m http.server 8080 --directory /home/tsuki/Documents/coda/2026-2027/projet/RAMMSS
    ```
    Puis ouvrez `http://localhost:8080` dans votre navigateur.
+
