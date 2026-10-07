@@ -35,7 +35,7 @@ L'ensemble des fonctionnalités est découpé sous forme de User Stories, priori
 | **US-09** | Signalement d'une proposition inappropriée | Could Have | 2 SP | Backlog |
 | **US-10** | Recherche textuelle par mots-clés | Could Have | 3 SP | Backlog |
 | **US-11** | Notifications des mises à jour des idées soutenues | Could Have | 5 SP | Backlog |
-| **US-12** | Tableau de bord des statistiques d'impact campus | Won't Have | 8 SP | Backlog |
+| **US-12** | Tableau de bord des statistiques d'impact campus | Won't Have | 13 SP | Backlog |
 
 ---
 
