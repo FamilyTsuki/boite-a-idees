@@ -90,3 +90,4 @@ Une User Story est formellement déclarée **Done** uniquement si l'ensemble des
 4. **Intégration** : L'ensemble est synchronisé et intégré proprement sur la branche principale (`main`).
 5. **Documentation** : La documentation utilisateur et les notes de version sont à jour.
 6. **Démontrable** : La fonctionnalité est présentable en direct aux parties prenantes lors de la Sprint Review (TP9).
+
